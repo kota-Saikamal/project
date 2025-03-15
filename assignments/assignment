@@ -1,0 +1,21 @@
+1) What is Server?
+
+A server is the platform where user or customer gets all possible services they are willing to 
+and a server can be classified into 2 types they are physical servers and virtual servers 
+=> Physical Servers: they build and managed physically within the data center of their respective organization
+=> Virtual Servers: they are not physical managed instead they create hardware component as a software they is also known as infrasture as code.
+
+2) What are Virtual Machines or VM's ? 
+
+Virtual Machines is a software-based computers that runs on operating system just like physical computer but managed by the hypervisors and also share underlining hardware with other VM's
+VM's are also classified into two kinds
+=> System VM's: they are fulled virtualized operating system (Ex: EC2 in aws)
+=> Application VM's or Process VM's: used for one specific task or process ( Ex: JVM for running java programs)
+
+3) What are Hypervisors ?
+
+A Hypervisor are used to manage VM's where it create sufficient resources for each VM and also isolated each VM with a separate operating system
+There are two types of hypervisor
+=> Bare metal: runs directly on the hardware ( faster , used in cloud computing)
+=> Hosted: run inside the operating system (easier , used for testing) 
+
