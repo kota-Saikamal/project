@@ -1,0 +1,20 @@
+nslookup metasploit.com
+Server:         10.0.2.3
+Address:        10.0.2.3#53
+
+Non-authoritative answer:
+Name:   metasploit.com
+Address: 18.155.49.97
+Name:   metasploit.com
+Address: 18.155.49.88
+Name:   metasploit.com
+Address: 18.155.49.82
+Name:   metasploit.com
+Address: 18.155.49.114
+
+
+## Summary 
+
+nslookup shows metasploit.com resolves to multiple IP addresses, indicating load balancing or CDN-backed hosting.
+
+The non-authoritative answer means the response came from a recursive DNS resolver, not the domain’s authoritative nameserver.

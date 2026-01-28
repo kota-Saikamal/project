@@ -1,0 +1,65 @@
+Germany
+1
+India
+1
+Italy
+1
+Singapore
+1
+Top Ports
+23
+3
+9064
+1
+Top Organizations
+DigitalOcean, LLC
+2
+Atria Convergence Technologies Pvt. Ltd.,
+1
+Iliad / Free SAS
+1
+ View Report
+ View on Map
+ Advanced Search
+Access Granted: Want to get more out of your existing Shodan account? Check outeverything you have access to.
+167.99.79.152
+2026-01-23T23:16:35.595869
+metasploitable.vmdk-s-2vcpu-4gb-sgp1-01
+DigitalOcean, LLC
+SingaporeSingapore, Singapore
+cloud
+_                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\_...
+207.154.199.110
+2026-01-23T18:05:07.740108
+DigitalOcean, LLC
+GermanyGermany, Frankfurt am Main
+cloud
+_                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\_...
+81.56.87.193
+2026-01-07T06:01:06.290256
+bon31-1_migr-81-56-87-193.fbx.proxad.net
+Iliad / Free SAS
+ItalyItaly, Milan
+_                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\_...
+106.51.70.241
+2026-01-02T06:48:21.000145
+106.51.70.241.actcorp.in
+Atria Convergence Technologies Pvt. Ltd.,
+IndiaIndia, Bengaluru
+
+
+### Summary
+
+Shodan results show **Metasploitable instances exposed on the internet across multiple countries (Germany, India, Italy, Singapore)**, mostly hosted on **cloud/ISP networks like DigitalOcean and ACT**, with common vulnerable service ports publicly accessible.

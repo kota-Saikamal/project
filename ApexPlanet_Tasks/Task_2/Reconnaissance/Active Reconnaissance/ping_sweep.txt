@@ -1,0 +1,14 @@
+ Currently scanning: 192.168.0.0/16   |   Screen View: Unique Hosts                                               
+                                                                                                                  
+ 3 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 180                                                  
+ _____________________________________________________________________________
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+ -----------------------------------------------------------------------------
+ 192.168.56.1    0a:00:27:00:00:0a      1      60  Unknown vendor                                                 
+ 192.168.56.100  08:00:27:80:38:fa      1      60  PCS Systemtechnik GmbH                                         
+ 192.168.56.108  08:00:27:0e:ac:a3      1      60  PCS Systemtechnik GmbH
+
+
+### Summary 
+
+above is the result of my ping_sweep using netdiscover under root user 
