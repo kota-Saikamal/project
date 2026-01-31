@@ -1,0 +1,11 @@
+## Passive 
+dig metasploit.com 
+nslookup metasploit.com
+whois metasploit.com
+site:metasploit.com
+site:github.com Metasploit exploit
+
+## Active
+sudo su
+netdiscover
+nmap -sV <IP>
