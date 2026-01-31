@@ -1,0 +1,22 @@
+Operating System:
+- Kali Linux
+
+Reconnaissance:
+- Whois
+- Nslookup
+- Google Search (Google Dorking)
+- Shodan
+
+Scanning & Enumeration:
+- Nmap
+- Netdiscover
+
+Vulnerability Scanning:
+- OpenVAS (GVM)
+
+Traffic Analysis:
+- Wireshark
+- hping3
+
+Firewall & Defense:
+- iptables

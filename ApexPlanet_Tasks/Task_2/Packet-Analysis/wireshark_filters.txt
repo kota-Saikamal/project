@@ -1,0 +1,49 @@
+Wireshark Display Filters Used During Network Traffic Analysis
+
+1) HTTP Traffic Filter
+   Filter:
+     http
+   Purpose:
+     To isolate and analyze unencrypted HTTP requests and responses.
+   Observations:
+     - Captured HTTP GET and HEAD requests.
+     - Observed HTTP 200 OK responses with headers.
+     - Verified stateless client–server communication.
+
+2) FTP Control Channel Filter
+   Filter:
+     ftp || tcp.port == 21
+   Purpose:
+     To capture FTP control traffic including authentication and commands.
+   Observations:
+     - USER and PASS commands transmitted in plaintext.
+     - FTP commands such as LIST, RETR, and STOR observed.
+     - Demonstrates insecurity of unencrypted FTP.
+
+3) FTP Data Channel Filter
+   Filter:
+     ftp-data
+   Purpose:
+     To analyze the FTP data channel where file contents are transferred.
+   Observations:
+     - File transfer initiated in binary mode.
+     - Actual file payload transmitted over a separate TCP connection.
+     - File content extracted using Wireshark FTP object export.
+
+4) DNS Traffic Filter
+   Filter:
+     dns
+   Purpose:
+     To isolate domain name resolution traffic.
+   Observations:
+     - Standard DNS query and response packets captured.
+     - Verified mapping of domain names to IP addresses.
+
+5) SYN Flood Detection Filter
+   Filter:
+     tcp.flags.syn == 1 && tcp.flags.ack == 0
+   Purpose:
+     To detect abnormal TCP SYN packet rates during SYN flood simulation.
+   Observations:
+     - Large number of SYN packets without completing TCP handshakes.
+     - Indicates half-open connections typical of SYN flood attacks.
