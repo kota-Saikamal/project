@@ -1,0 +1,19 @@
+Operating System  : Kali Linux
+Kernel Version   : Linux 6.17.10
+Architecture     : x86_64
+
+Web Server       : Apache/2.4.66
+PHP Version      : PHP 8.4.16
+Database Server  : MariaDB 11.8.5
+
+DVWA Version     : Latest (GitHub)
+Document Root    : /var/www/html/DVWA
+Access URL       : http://localhost/DVWA/
+
+Database Name    : dvwa
+Database User    : dvwa
+Database Port    : 3306
+
+PHP display_errors : Enabled
+Apache Status      : Running
+MariaDB Status     : Running

