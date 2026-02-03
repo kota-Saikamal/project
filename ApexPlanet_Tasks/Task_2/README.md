@@ -65,3 +65,45 @@ To perform an end-to-end network security assessment by conducting reconnaissanc
 ---
 
 ## Repository Structure
+Task_2/
+├── README.md
+├── 1-Reconnaissance/
+│   ├── Passive/
+│   │   ├── whois.txt
+│   │   ├── nslookup.txt
+│   │   ├── google_dorks.txt
+│   │   └── shodan.txt
+│   │   └── dig.txt
+│   │   └── Screenshots/
+│   └── Active/
+│       ├── ping_sweep.txt
+│       ├── banner_grabbing.txt
+│       └── Screenshots/
+├── 2-Port-Service-Scanning/
+│   ├── nmap_tcp_scan.txt
+│   ├── nmap_udp_scan.txt
+│   ├── service_version.txt
+│   ├── os_detection.txt
+│   ├── scan_report.md
+│   └── Screenshots/
+├── 3-Vulnerability-Scanning/
+│   ├── openvas_report.pdf
+│   ├── vulnerability_analysis.md
+│   └── Screenshots/
+├── 4-Packet-Analysis/
+│   ├── pcaps/
+│   │   ├── http.pcap
+│   │   ├── ftp_credentials.pcap
+│   │   └── dns.pcap
+│   ├── wireshark_filters.txt
+│   ├── syn_flood_analysis.md
+│   └── Screenshots/
+├── 5-Firewall-Basics/
+│   ├── port_scan_block_demo.md
+│   └── Screenshots/
+├── Tools-Used.txt
+└── Payloads/
+    ├── recon_commands.txt
+    ├── nmap_commands.txt
+    ├── hping3_commands.txt
+    └── iptables_commands.txt
