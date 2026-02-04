@@ -1,0 +1,33 @@
+Tools Used in Web Application Security Assessment
+
+1. Burp Suite
+   - Intercepting HTTP/HTTPS requests
+   - Intruder-based fuzzing
+   - Manual request manipulation and testing
+
+2. Damn Vulnerable Web Application (DVWA)
+   - Intentionally vulnerable web application
+   - Used for SQL Injection, XSS, CSRF, File Inclusion testing
+   - Hosted locally on Apache server
+
+3. securityheaders.com
+   - Online security header analysis tool
+   - Used to evaluate HTTP security headers
+   - Provided grading and missing header identification
+
+4. Apache Web Server
+   - Hosting DVWA and test web pages
+   - Configured with HTTP security headers
+   - Used for server-side hardening
+
+5. XML
+   - Used in request/response data formats
+   - Observed during HTTP traffic analysis
+
+6. curl
+   - Command-line tool for verifying HTTP response headers
+   - Used to validate server-side security configuration
+
+7. Web Browser (Firefox/Chromium)
+   - Used to access DVWA and test applications
+   - Configured to work with Burp Suite proxy

