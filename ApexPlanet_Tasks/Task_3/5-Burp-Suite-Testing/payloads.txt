@@ -1,0 +1,7 @@
+## Intercept request payload
+client path: GET /search?client=firefox-b-e&channel=entpr&q=Man+in+the+middle HTTP/1.1
+intercept path: GET /search?client=firefox-b-e&channel=entpr&q=Child+play HTTP/1.1
+
+## Intruder fuzzing payload
+payload in Intruder tool
+1) ' OR 1=1--

