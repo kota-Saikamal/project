@@ -1,0 +1,8 @@
+## first unshadow the data 
+unshadow passwd.txt shadow.txt > hashes.txt
+
+## Cracking passwords
+john hashes.txt
+
+## Show cracked passwords
+john --show hashes.txt
