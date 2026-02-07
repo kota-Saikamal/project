@@ -1,0 +1,47 @@
+<!-- templates/email-templates/corporate-login-alert.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Security Alert - Login Verification Required</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color:#f4f4f4; padding:20px;">
+
+  <table width="600" align="center" style="background:#ffffff; padding:20px; border-radius:6px;">
+    
+    <tr>
+      <td align="center">
+        <h2>Security Alert</h2>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Hello,</p>
+
+        <p>
+          We detected a new login attempt from an unrecognized device. 
+          Please verify your account immediately to prevent temporary suspension.
+        </p>
+
+        <p style="text-align:center;">
+          <a href="{{PHISHING_LINK}}" 
+             style="background:#007bff; color:white; padding:12px 20px; text-decoration:none; border-radius:4px;">
+             Verify Login
+          </a>
+        </p>
+
+        <p>
+          If this was not you, please secure your account immediately.
+        </p>
+
+        <p>Security Team</p>
+      </td>
+    </tr>
+
+  </table>
+
+</body>
+</html>
