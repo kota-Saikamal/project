@@ -1,0 +1,47 @@
+<!-- templates/email-templates/security-notification.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Important Security Notification</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color:#f4f4f4; padding:20px;">
+
+  <table width="600" align="center" style="background:#ffffff; padding:20px; border-radius:6px;">
+
+    <tr>
+      <td align="center">
+        <h2>Account Security Notification</h2>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Hello,</p>
+
+        <p>
+          Our system has identified unusual activity associated with your account.
+          Please review and confirm your account details immediately to avoid restrictions.
+        </p>
+
+        <p style="text-align:center;">
+          <a href="{{PHISHING_LINK}}"
+             style="background:#28a745; color:white; padding:12px 20px; text-decoration:none; border-radius:4px;">
+             Review Activity
+          </a>
+        </p>
+
+        <p>
+          Thank you for helping keep your account secure.
+        </p>
+
+        <p>Security Operations</p>
+      </td>
+    </tr>
+
+  </table>
+
+</body>
+</html>

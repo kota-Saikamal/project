@@ -1,0 +1,45 @@
+<!-- templates/email-templates/invoice-urgent-review.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Urgent Invoice Review Required</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color:#f4f4f4; padding:20px;">
+
+  <table width="600" align="center" style="background:#ffffff; padding:20px; border-radius:6px;">
+
+    <tr>
+      <td align="center">
+        <h2>Invoice Pending Review</h2>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Hello,</p>
+
+        <p>
+          An invoice has been assigned to you for urgent review. 
+          Please check the details immediately to avoid processing delays.
+        </p>
+
+        <p style="text-align:center;">
+          <a href="{{PHISHING_LINK}}"
+             style="background:#ffc107; color:black; padding:12px 20px; text-decoration:none; border-radius:4px;">
+             View Invoice
+          </a>
+        </p>
+
+        <p>
+          Finance Department
+        </p>
+      </td>
+    </tr>
+
+  </table>
+
+</body>
+</html>
