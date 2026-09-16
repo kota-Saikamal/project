@@ -1,4 +1,0 @@
-../../../../etc/passwd
-../../../etc/passwd
-../../../../etc/hosts
-../../../../proc/self/environ
