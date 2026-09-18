@@ -32,6 +32,74 @@ The project is organized into separate modules for packet management, input hand
 * Display packet information and validation errors
 * Modular source-code organization using header and implementation files
 
+## Control Flow
+
+The following diagram shows the overall control flow of the Mini Packet Analyzer:
+
+```mermaid
+flowchart TD
+    A[Start Program] --> B[Display Menu]
+
+    B --> C{User Choice}
+
+    C -->|1. Create Packet| D[Initialize Packet]
+    D --> E[Get Packet Flags]
+    E --> F[Get Packet Type]
+    F --> G[Get Packet Version]
+    G --> H[Get Sequence Number]
+    H --> I[Get Payload]
+    I --> J[Validate Packet]
+
+    J -->|Invalid| K[Display Validation Error]
+    K --> B
+
+    J -->|Valid| L[Display Packet]
+    L --> M[Serialize Packet]
+    M --> N[Save Binary Packet]
+    N --> B
+
+    C -->|2. Parse Packet| O[Enter .bin File Path]
+    O --> P[Upload Binary Packet]
+    P --> Q[Deserialize Packet]
+    Q --> R{Deserialization Successful?}
+
+    R -->|No| S[Display Deserialization Error]
+    S --> B
+
+    R -->|Yes| T[Validate Packet]
+    T -->|Invalid| U[Display Validation Error]
+    U --> B
+
+    T -->|Valid| V[Display Packet]
+    V --> B
+
+    C -->|3. Exit| W[End Program]
+
+    C -->|Invalid Choice| X[Display Invalid Choice]
+    X --> B
+```
+
+## Module Flow
+
+```mermaid
+flowchart LR
+    MAIN[main.c]
+
+    MAIN --> PACKET[packet.c]
+    MAIN --> PARSER[parser.c]
+
+    PACKET --> INPUT[input.c]
+    PACKET --> VALIDATION[validation.c]
+    PACKET --> SERIALIZE[serialize.c]
+    PACKET --> STORAGE[storage.c]
+    PACKET --> ERROR[error.c]
+
+    PARSER --> STORAGE
+    PARSER --> VALIDATION
+    PARSER --> ERROR
+    PARSER --> PACKET
+```
+
 ## Project Structure
 
 ```text
@@ -81,6 +149,7 @@ Provides the core packet operations:
 * Check packet flags
 * Set packet payload
 * Build a packet from user input
+* Create a packet
 
 ### `input.c`
 
@@ -118,7 +187,7 @@ Reads serialized packet data and reconstructs the `Packet` structure.
 Handles binary file operations:
 
 * Saving serialized packet data
-* Uploading packet data from files
+* Uploading packet data from `.bin` files
 
 ### `error.c`
 
@@ -249,29 +318,38 @@ This compiles the source files and creates the `packet_analyzer` executable.
 make clean
 ```
 
-## Manual Test Cases
+### Build and Run
 
-The following cases can be used to test the application:
+```bash
+make run
+```
+
+## Manual Test Cases
 
 ### Packet Creation
 
-1. Create a valid DATA packet.
-2. Create a valid ACK packet.
-3. Create a valid ERROR packet.
-4. Enter an invalid packet version.
-5. Enter sequence number `0`.
-6. Create a packet without flags.
-7. Try an invalid flag combination.
-8. Enter a payload within the allowed size.
-9. Enter a payload exceeding the allowed size.
+| # | Test Case                       | Expected Result                            |
+| - | ------------------------------- | ------------------------------------------ |
+| 1 | Create a valid DATA packet      | Packet is validated, serialized, and saved |
+| 2 | Create a valid ACK packet       | Packet is validated and saved              |
+| 3 | Create a valid ERROR packet     | Packet is validated and saved              |
+| 4 | Enter an invalid packet version | Invalid version error                      |
+| 5 | Enter sequence number `0`       | Invalid sequence error                     |
+| 6 | Create a packet without flags   | No-flag error                              |
+| 7 | Use an invalid flag combination | Appropriate flag validation error          |
+| 8 | Enter a valid payload           | Payload is accepted                        |
+| 9 | Enter an oversized payload      | Payload validation fails                   |
 
 ### File Operations
 
-1. Save a packet using a `.bin` filename.
-2. Attempt to save using an invalid file extension.
-3. Upload an existing `.bin` packet.
-4. Parse a valid serialized packet.
-5. Attempt to parse invalid or incomplete binary data.
+| # | Test Case                            | Expected Result                 |
+| - | ------------------------------------ | ------------------------------- |
+| 1 | Save packet using `.bin` extension   | Packet is written to file       |
+| 2 | Save using an invalid extension      | File extension validation fails |
+| 3 | Upload an existing `.bin` file       | Binary data is read             |
+| 4 | Parse valid serialized packet        | Packet is reconstructed         |
+| 5 | Parse incomplete/invalid binary data | Deserialization fails           |
+| 6 | Parse a packet with invalid fields   | Validation error is displayed   |
 
 ## Technologies
 
@@ -281,7 +359,7 @@ The following cases can be used to test the application:
 * **File Format:** Binary (`.bin`)
 * **Development:** Command-line environment
 
-## Learning Objectives
+## Concepts Demonstrated
 
 This project demonstrates practical use of:
 
@@ -294,12 +372,48 @@ This project demonstrates practical use of:
 * Binary file I/O
 * Serialization and deserialization
 * Input handling
-* Validation and error handling
+* Validation
+* Error handling
 * Multi-file compilation
 * Makefiles
 
+## Build Requirements
+
+The project requires:
+
+* GCC
+* GNU Make
+* A command-line environment
+
+Check the installed versions:
+
+```bash
+gcc --version
+make --version
+```
+
+## Usage
+
+After building the project:
+
+```bash
+./packet_analyzer
+```
+
+The application displays:
+
+```text
+===== MINI PACKET ANALYZER =====
+1. Create Packet
+2. Parse Packet
+3. Exit
+================================
+```
+
+Select an option and follow the prompts provided by the program.
+
 ## Author
 
-**Your Name**
+**Sai Kamal Kota**
 
-GitHub: `your-github-username`
+GitHub: [kota-Saikamal](https://github.com/kota-Saikamal)
