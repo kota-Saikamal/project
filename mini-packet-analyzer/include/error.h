@@ -1,0 +1,20 @@
+#ifndef ERROR_H
+#define ERROR_H
+
+typedef enum {
+  ERROR_NONE=0,
+  ERROR_INVALID_VERSION,
+  ERROR_INVALID_SEQUENCE,
+  ERROR_NO_FLAG,
+  ERROR_DATA_FLAG,
+  ERROR_ACK_FLAG,
+  ERROR_ERROR_FLAG,
+  ERROR_INVALID_TYPE,
+  ERROR_INVALID_LENGTH,
+  ERROR_INVALID_PAYLOAD
+ }PacketError;
+
+
+ void error_display(PacketError error);
+
+ #endif
