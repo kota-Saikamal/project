@@ -1,0 +1,42 @@
+# Build artifacts
+
+/build/
+/bin/
+*.o
+*.a
+*.so
+
+# Generated logs
+
+/logs/
+*.log
+
+# Runtime data
+/data/
+
+# Generated PCAP captures
+/captures/
+*.pcapng
+
+# Python
+__pycache__/
+*.py[cd]
+.venv/
+venv/.
+pytest_cache/
+
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
