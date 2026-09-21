@@ -37,7 +37,7 @@ int ids_capture_live(const char *interface)
         
     if( handle == NULL) 
      {
-        fprintf(stderr, "pcap_open_lived failed: %s\n",errbuf);
+        fprintf(stderr, "pcap_open_live failed: %s\n",errbuf);
         return -1;
      }
      
