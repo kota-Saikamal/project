@@ -307,7 +307,6 @@ tests/pcaps/
 * [x] UDP parsing
 * [ ] Complete ICMP parsing
 * [ ] Complete ICMPv6 parsing
-* [ ] DNS parsing
 * [ ] IPv6 extension-header parsing
 
 ### Phase 2 — Flow Tracking
