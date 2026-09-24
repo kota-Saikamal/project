@@ -1,5 +1,4 @@
 #include "ipv6.h"
-#include <stdio.h>
 #include <arpa/inet.h>
 #include <string.h>
 
@@ -11,9 +10,6 @@ ids_parse_result_t ids_parse_ipv6 (
  ids_packet_t *packet
  )
  {
-   char src[INET6_ADDRSTRLEN];
-   char dst[INET6_ADDRSTRLEN];
-
    if ( data == NULL || packet == NULL) {
       return IDS_PARSE_INVALID_ARGUMENT;
     }
@@ -77,26 +73,5 @@ ids_parse_result_t ids_parse_ipv6 (
       packet->payload_length = payload_length;
       packet->packet_length = length; 
 
-      inet_ntop(
-         AF_INET6,
-         packet->source_ip.address,
-         src,
-         sizeof(src)
-      );
-
-      printf("Source: %s\n",src);
-
-      inet_ntop(
-      	 AF_INET6,
-      	 packet->destination_ip.address,
-      	 dst,
-      	 sizeof(dst)
-      );
-
-      printf("Destination: %s\n",src);
-
-       
-
-     
-   return IDS_PARSE_OK;
+      return IDS_PARSE_OK;
  }

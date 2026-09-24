@@ -1,5 +1,4 @@
 #include "ipv4.h"
-#include <stdio.h>
 #include <arpa/inet.h>
 #include <string.h>
 
@@ -12,12 +11,7 @@ ids_parse_result_t ids_parse_ipv4(
 	ids_packet_t *packet
 )
 {
-   char src[INET_ADDRSTRLEN];
-   char dst[INET_ADDRSTRLEN];
-
-   
-
-   
+      
    if (data == NULL || packet == NULL ) {
         return IDS_PARSE_INVALID_ARGUMENT;
     }
@@ -106,18 +100,6 @@ ids_parse_result_t ids_parse_ipv4(
 	 packet->payload_length = total_length - header_length;
 
 	 packet->packet_length = total_length;
-    
-    
-     printf("IPv4 packet\n");
-     printf("Protocol: %d\n",protocol);
-     printf("Header length: %zu\n", header_length);
-     printf("Total length: %u\n",total_length);
-
-     inet_ntop(AF_INET, packet->source_ip.address, src, sizeof(src));
-     inet_ntop(AF_INET, packet->destination_ip.address, dst, sizeof(dst));
-
-     printf("Source: %s\n",src);
-     printf("Destination: %s\n",dst);
-         
+        
 	 return IDS_PARSE_OK;
 }

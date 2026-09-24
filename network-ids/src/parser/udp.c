@@ -1,5 +1,4 @@
 #include "udp.h"
-#include <stdio.h>
 #include <arpa/inet.h>
 #include <string.h>
 
@@ -52,11 +51,7 @@ ids_parse_result_t ids_parse_udp(
      return IDS_PARSE_TRUNCATED;
   }
 
-  printf("UDP source port: %u\n",udp->source_port);
-  printf("UDP destination port: %u\n",udp->destination_port);
-  printf("UDP length port: %u\n",udp->length);
-  
-  return IDS_PARSE_OK;
+ return IDS_PARSE_OK;
 
 }
 

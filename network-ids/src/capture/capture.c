@@ -59,8 +59,10 @@ int ids_capture_live(const char *interface)
        
        ids_parse_result_t parse_result =  ids_parse_packet(data,header->caplen,&packet);        
 
-       if(parse_result == IDS_PARSE_OK) 
-           printf("EtherType: 0x%04X\n",packet.ethernet.ether_type);
+       if(parse_result == IDS_PARSE_OK) { 
+		   printf("----------------------------------------------------------------------------------------------\n");
+           printf("Packet length: %u bytes\n",header->caplen);         
+       }
        else 
            printf("Packet parsing failed.\n");
     

@@ -1,7 +1,7 @@
 #include "tcp.h"
 #include <string.h>
 #include <arpa/inet.h>
-#include <stdio.h>
+
 
 #define TCP_MIN_HEADER_SIZE 20
 
@@ -67,10 +67,5 @@ ids_parse_result_t ids_parse_tcp (
 	); 
 	tcp->window_size = ntohs(tcp->window_size);     
 
-   printf("TCP source port: %u\n",tcp->source_port);
-   printf("TCP destination port: %u\n",tcp->destination_port);
-   printf("TCP sequence: %u\n",tcp->sequence_number);
-   printf("TCP flags: 0x%02x\n",tcp->flags);
-   
    return IDS_PARSE_OK;
  }

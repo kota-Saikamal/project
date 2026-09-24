@@ -1,6 +1,4 @@
 #include "ethernet.h"
-
-
 #include <arpa/inet.h>
 #include <string.h>
 
@@ -40,3 +38,5 @@ ids_parse_result_t ids_parse_ethernet(
 
       return IDS_PARSE_OK;
 }
+
+
