@@ -1,9 +1,130 @@
 #include "parser.h"
 #include "ids_types.h"
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdint.h>
 
+static void test_ipv4_icmp()
+{
+	uint8_t data[] = {
+
+		0xff,0xff,0xff,0xff,0xff,0xff,
+		0x00,0x11,0x22,0x33,0x44,0x55,
+		0x08,0x00,
+
+		0x45,0x00,
+		0x00,0x1c,
+		0x00,0x00,
+		0x00,0x00,
+		0x40,0x01,
+		0x00, 0x00,
+		192,168,1,10,
+		192,168,1,20,
+
+		0x08,0x00,
+		0x12,0x34,
+		0x00,0x01,
+		0x00,0x01,
+	};
+
+	ids_packet_t packet;
+
+	ids_parse_result_t result = ids_parse_packet(data,sizeof(data),&packet);
+
+	if(result != IDS_PARSE_OK) {
+		printf("FAIL: expected IDS_PARSE_OK, got %d\n",result);
+		return;
+	}
+
+	if(packet.protocol  != IDS_PROTOCOL_ICMP) {
+		printf("FAIL: wrong result\n");
+		return;
+	}
+
+	if(packet.transport.icmp.type != 8) {
+		printf("FAIL: ICMP type test\n");
+		return;
+	}
+
+	if(packet.transport.icmp.code != 0) {
+		printf("FAIL: ICMP code test\n");
+		return;
+	}
+
+	if(packet.transport.icmp.checksum != 0X1234) {
+		printf("FAIL: ICMP chesksum test\n");
+		return;
+	}
+	
+   printf("PASS: test_ipv4_icmp\n");
+}
+
+static void test_ipv6_icmpv6()
+{
+	uint8_t data[] = {
+
+		0xff,0xff,0xff,0xff,0xff,0xff,
+		0x00,0x11,0x22,0x33,0x44,0x55,
+		0x86,0xdd,
+
+		0x60,0x00,0x00,0x00,
+		0x00,0x08,
+		0x3a,
+		0x40,
+
+		//source IPv6
+   0x20, 0x01, 0x0d, 0xb8,
+   0x00, 0x00, 0x00, 0x00,
+   0x00, 0x00, 0x00, 0x00,
+   0x00, 0x00, 0x00, 0x01,
+
+   //desstination IPv6
+   0x20, 0x01, 0x0d, 0xb8,
+   0x00, 0x00, 0x00, 0x00,
+   0x00, 0x00, 0x00, 0x00,
+   0x00, 0x00, 0x00, 0x02,
+   
+
+
+		0x80,0x00,
+		0x12,0x34,
+		0x00,0x01,
+		0x00,0x01,
+	};
+
+	ids_packet_t packet;
+
+	ids_parse_result_t result = ids_parse_packet(data,sizeof(data),&packet);
+
+	if(result != IDS_PARSE_OK) {
+		printf("FAIL: expected IDS_PARSE_OK, got %d\n",result);
+		return;
+	}
+
+	if(packet.protocol  != IDS_PROTOCOL_ICMPV6) {
+		printf("FAIL: wrong result\n");
+		return;
+	}
+
+	if(packet.transport.icmpv6.type != 128) {
+		printf("FAIL: ICMPV6 type test");
+		return;
+	}
+
+	if(packet.transport.icmpv6.code != 0) {
+		printf("FAIL: ICMPV6 code test");
+		return;
+	}
+
+	if(packet.transport.icmpv6.checksum != 0X1234) {
+		printf("FAIL: ICMPV6 chesksum test");
+		return;
+	}
+
+	printf("PASS: test_ipv6_icmpv6\n");
+
+}
 
 static void test_null_data()
 {
@@ -284,6 +405,7 @@ static void test_ipv6_tcp()
 	0x00, 0x014,
 	0x06,
 	0x40,
+	
    //source IPv6
    0x20, 0x01, 0x0d, 0xb8,
    0x00, 0x00, 0x00, 0x00,
@@ -468,6 +590,9 @@ int main()
 	test_ipv6_tcp();
 	test_ipv6_udp();
     test_ipv6_unknown_protocol();
+
+	test_ipv4_icmp();
+	test_ipv6_icmpv6();
     
 	printf("\nParser tests complete.\n");
 

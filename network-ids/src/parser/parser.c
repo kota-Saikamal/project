@@ -4,6 +4,9 @@
 #include "ethernet.h"
 #include "tcp.h"
 #include "udp.h"
+#include "icmp.h"
+
+
 
 ids_parse_result_t ids_match_protocol(ids_packet_t *packet)
 {
@@ -14,13 +17,27 @@ ids_parse_result_t ids_match_protocol(ids_packet_t *packet)
 				packet->payload_length,
 				&packet->transport.tcp
 			);
+
 		case IDS_PROTOCOL_UDP:
 			return ids_parse_udp(
 				packet->payload,
 				packet->payload_length,
 				&packet->transport.udp
 			);
-			
+
+		case IDS_PROTOCOL_ICMP:
+			return ids_parse_icmp(
+				packet->payload,
+				packet->payload_length,
+				&packet->transport.icmp
+			);
+
+		case IDS_PROTOCOL_ICMPV6:
+			return ids_parse_icmpv6(
+				packet->payload,
+				packet->payload_length,
+				&packet->transport.icmpv6
+			);	
 		default:
 			return IDS_PARSE_UNSUPPORTED;
 	}
