@@ -1,136 +1,83 @@
+Yes. Here is the **current project-status `README.md`**, reflecting what we have actually completed so far and what remains.
+
 # Network IDS
 
-A modular network intrusion detection system implemented primarily in C.
+A C-based Network Intrusion Detection System (IDS) designed to capture network traffic, parse packets, track bidirectional flows, extract detection-oriented features, detect suspicious activity, correlate events, and generate alerts.
 
-## Goals
+## Project Status
 
-The system is designed to:
+**Current stage:** Flow management completed → Feature extraction in progress.
 
-* Capture network packets from a live interface or PCAP file.
-* Parse Ethernet, IPv4, IPv6, TCP, UDP, ICMP, ICMPv6, and DNS traffic.
-* Track bidirectional network flows.
-* Calculate packet, flow, and rate-based features.
-* Detect network activity such as:
+### Completed
 
-  * TCP/SYN port scans
-  * ICMP sweeps
-  * Brute-force behavior
-  * Network floods
-  * Statistical anomalies
-* Correlate related detection events.
-* Generate structured alerts.
-* Store alerts for later analysis.
-* Provide data to analysis, reporting, and dashboard components.
+* [x] Project architecture defined
+* [x] Ethernet parsing
+* [x] IPv4 parsing
+* [x] IPv6 parsing
+* [x] TCP parsing
+* [x] UDP parsing
+* [x] ICMP parsing
+* [x] ICMPv6 parsing
+* [x] Parser integration
+* [x] Packet capture using libpcap
+* [x] Bidirectional flow design
+* [x] Flow key generation
+* [x] Flow equality / reverse-flow matching
+* [x] Flow initialization
+* [x] Flow updates
+* [x] Flow table
+* [x] Flow table lookup
+* [x] Flow creation
+* [x] Flow table capacity handling
+* [x] Unit tests for parser and flow components
+* [x] Unit tests for flow table
 
-## Architecture
-
-The planned processing pipeline is:
-
-```text
-Capture
-   ↓
-Parsing
-   ↓
-Flow Tracking
-   ↓
-Feature Extraction
-   ↓
-Detection
-   ↓
-Correlation
-   ↓
-Alerting
-   ↓
-Storage / Analysis / Dashboard
-```
-
-The current implementation is focused on the **Capture and Parsing** stages.
-
-### Current Parsing Pipeline
+## Current Architecture
 
 ```text
-Raw Packet
-    ↓
-Ethernet
-    ↓
-EtherType
-    ├── IPv4
-    │    └── Protocol
-    │         ├── TCP
-    │         ├── UDP
-    │         └── ICMP
-    │
-    └── IPv6
-         └── Next Header
-              ├── TCP
-              ├── UDP
-              └── ICMPv6
+Network Interface
+       │
+       ▼
+   libpcap Capture
+       │
+       ▼
+     Parser
+       │
+       ├── Ethernet
+       ├── IPv4
+       ├── IPv6
+       ├── TCP
+       ├── UDP
+       ├── ICMP
+       └── ICMPv6
+       │
+       ▼
+   Flow Management
+       │
+       ├── Flow Key
+       ├── Flow State
+       └── Flow Table
+       │
+       ▼
+ Feature Extraction        ← CURRENT STAGE
+       │
+       ▼
+    Detection
+       │
+       ▼
+   Correlation
+       │
+       ▼
+     Alerts
 ```
 
-The parser uses protocol-specific modules and validates packet/header lengths before accessing protocol fields.
-
-## Current Project Status
-
-**Stage: Initial packet capture and protocol parsing**
-
-Currently implemented:
-
-* Live packet capture using `libpcap`
-* Graceful capture termination using `SIGINT`
-* Ethernet II parsing
-* EtherType identification
-* IPv4 parsing
-* IPv6 base-header parsing
-* TCP parsing
-* UDP parsing
-* ICMP data structures
-* ICMPv6 data structures
-* Transport protocol dispatch
-* Network-byte-order conversion using `ntohs()` / `ntohl()`
-* Basic malformed/truncated packet validation
-
-The current parser handles:
-
-```text
-Ethernet
-├── IPv4
-│   ├── TCP
-│   ├── UDP
-│   └── ICMP
-└── IPv6
-    ├── TCP
-    ├── UDP
-    └── ICMPv6
-```
-
-### Currently Under Development
-
-The following components are planned but are not yet fully implemented:
-
-* Complete ICMP/ICMPv6 parsing
-* IPv6 extension-header processing
-* DNS parsing
-* Bidirectional flow tracking
-* Feature extraction
-* Detection engine
-* Detection rules
-* Event correlation
-* Alert generation
-* Alert storage
-* Python analysis
-* Database integration
-* Dashboard/API
-* Comprehensive automated testing
-
-## Project Structure
+## Repository Structure
 
 ```text
 network-ids/
 ├── src/
 │   ├── main.c
 │   ├── capture/
-│   │   ├── capture.c
-│   │   └── capture.h
 │   ├── parser/
 │   │   ├── parser.c
 │   │   ├── parser.h
@@ -145,18 +92,24 @@ network-ids/
 │   │   ├── udp.c
 │   │   ├── udp.h
 │   │   ├── icmp.c
-│   │   ├── icmp.h
-│   │   ├── icmpv6.c
-│   │   └── icmpv6.h
+│   │   └── icmp.h
 │   ├── flow/
+│   │   ├── flow.c
+│   │   ├── flow.h
+│   │   ├── flow_table.c
+│   │   └── flow_table.h
 │   ├── feature/
+│   │   ├── feature.c
+│   │   └── feature.h
 │   ├── detection/
 │   ├── correlation/
 │   ├── alert/
 │   ├── config/
 │   └── common/
+│
 ├── include/
 │   └── ids_types.h
+│
 ├── rules/
 ├── configs/
 ├── python/
@@ -169,187 +122,314 @@ network-ids/
 └── README.md
 ```
 
-## Requirements
+## Packet Processing
 
-### Target Platform
+Captured packets are passed through the parser and converted into an `ids_packet_t`.
 
-* Linux
-* C compiler with C11 support
-* `libpcap`
-* POSIX-compatible environment
-* Make
+The packet currently contains information such as:
 
-### Optional Components
+* Ethernet information
+* Source IP
+* Destination IP
+* Protocol
+* Source port
+* Destination port
+* TCP state information
+* UDP information
+* ICMP / ICMPv6 information
+* Packet length
+* Payload information
+* Timestamp
+* Malformed-packet status
 
-* Python 3
-* Database engine
-* Dashboard runtime
+## Flow Management
 
-## Build
+The IDS uses **bidirectional flows**.
 
-The project uses a Makefile for compilation.
+A flow is identified using:
 
-```bash
-make
+```text
+Source IP
+Destination IP
+Source Port
+Destination Port
+Protocol
 ```
 
-For a debug build with AddressSanitizer and UndefinedBehaviorSanitizer:
-
-```bash
-make debug
-```
-
-Clean build artifacts:
-
-```bash
-make clean
-```
-
-## Running
-
-Live capture requires appropriate privileges.
+The flow layer also recognizes the reverse direction as belonging to the same flow.
 
 Example:
 
-```bash
-sudo ./network-ids
+```text
+192.168.1.10:5000 → 192.168.1.20:80
+192.168.1.20:80   → 192.168.1.10:5000
 ```
 
-The capture layer currently accepts a network interface and uses `libpcap` to retrieve packets.
+Both packets belong to the same bidirectional flow.
 
-## Packet Parsing
+Each flow currently tracks:
 
-Captured packets are passed from the capture layer to the parser.
+* First-seen timestamp
+* Last-seen timestamp
+* Forward packet count
+* Reverse packet count
+* Forward byte count
+* Reverse byte count
+* SYN count
+* ACK count
+* RST count
+* FIN count
+* Established state
 
-The parser first processes the Ethernet header and determines the network-layer protocol using EtherType.
+## Flow Table
 
-Supported EtherTypes currently include:
+The current flow table is a fixed-capacity table:
+
+```c
+#define IDS_FLOW_TABLE_CAPACITY 1024
+```
+
+The table:
+
+1. Generates a flow key from the packet.
+2. Searches for an existing flow.
+3. Updates the flow if found.
+4. Creates a new flow if not found.
+5. Rejects new flows when capacity is reached.
+
+The flow-table unit tests currently cover:
+
+* Initialization
+* Flow creation
+* Same-flow detection
+* Reverse-flow detection
+* Different-flow detection
+* Capacity handling
+
+All current flow-table tests pass.
+
+## Feature Extraction
+
+**Current development stage.**
+
+The feature layer is currently being designed around features that are useful to the detection engine.
+
+The current `ids_flow_features_t` contains:
 
 ```text
-0x0800  IPv4
-0x86DD  IPv6
+packet_count
+byte_count
+packets_forward
+packets_reverse
+bytes_forward
+bytes_reverse
+syn_count
+ack_count
+rst_count
+unique_destination_ports
+unique_destination_hosts
+packets_per_second
+bytes_per_second
+connection_rate
 ```
 
-The network-layer parser then determines the transport protocol using the IPv4 Protocol field or IPv6 Next Header field.
+The current approach is to avoid unnecessarily duplicating packet information. Features should be derived from the packet and flow state where appropriate.
 
-Relevant protocol numbers include:
+### Feature Architecture
+
+Currently:
 
 ```text
-IPv4 Protocol / IPv6 Next Header
-
-1    ICMP
-6    TCP
-17   UDP
-58   ICMPv6
+feature/
+├── feature.c
+└── feature.h
 ```
 
-Protocol-specific parsers extract fields into strongly typed C structures defined in:
+`feature.h` acts as the public API.
+
+`feature.c` acts as the initial feature-extraction orchestrator.
+
+Additional files such as:
 
 ```text
-include/ids_types.h
+packet_features.c
+flow_features.c
+rate_features.c
 ```
 
-## Security Principles
+will only be introduced if the feature implementation becomes large enough to justify splitting it.
 
-The IDS treats all network input as untrusted.
+## Unique Destination Features
 
-The implementation should:
+`unique_destination_ports` represents the number of distinct destination ports across the flows being analyzed.
 
-* Validate packet lengths before reading fields.
-* Validate protocol header lengths.
-* Validate protocol-specific length fields.
-* Avoid buffer overflows.
-* Avoid unsafe string operations.
-* Handle malformed and truncated packets gracefully.
-* Avoid crashing on corrupted traffic.
-* Keep packet parsing separate from detection logic.
-* Avoid assuming that captured packets are well formed.
+Example:
+
+```text
+Flow 1 → port 80
+Flow 2 → port 80
+Flow 3 → port 443
+Flow 4 → port 22
+```
+
+Result:
+
+```text
+unique_destination_ports = 3
+```
+
+Similarly, `unique_destination_hosts` represents the number of distinct destination IP addresses across the relevant flows.
+
+A hash-based structure may be used later to efficiently track unique ports and hosts.
+
+## Common Utilities
+
+The project currently has a planned `common/` layer:
+
+```text
+common/
+├── logger.c
+├── logger.h
+├── hashmap.c
+├── hashmap.h
+├── queue.c
+├── queue.h
+├── time.c
+└── time.h
+```
+
+These utilities will be implemented when required.
+
+Potential uses:
+
+* `hashmap` → efficient flow/host/port lookup
+* `time` → rate and time-window calculations
+* `logger` → IDS runtime and diagnostic logging
+* `queue` → future packet/event processing pipelines
+
+## Detection
+
+Planned detection modules:
+
+```text
+detection/
+├── detector.c
+├── detector.h
+├── port_scan.c
+├── syn_scan.c
+├── icmp_sweep.c
+├── syn_flood.c
+├── udp_flood.c
+├── brute_force.c
+└── anomaly.c
+```
+
+Planned detections include:
+
+* Port scanning
+* SYN scanning
+* ICMP sweeps
+* SYN floods
+* UDP floods
+* Brute-force activity
+* General traffic anomalies
+
+Detection implementation has **not started yet**.
+
+## Correlation
+
+Planned correlation layer:
+
+```text
+correlation/
+├── correlator.c
+└── correlator.h
+```
+
+Its purpose is to combine related detection events into higher-level security incidents.
+
+Correlation implementation has **not started yet**.
+
+## Alerting
+
+Planned alert layer:
+
+```text
+alert/
+├── alert.c
+├── alert.h
+├── json_output.c
+└── file_output.c
+```
+
+The alert layer will be responsible for producing structured IDS alerts and writing them to configured outputs.
+
+Alert implementation has **not started yet**.
+
+## Configuration
+
+Planned configuration layer:
+
+```text
+config/
+├── config.c
+└── config.h
+```
+
+Configuration will eventually contain items such as:
+
+* Capture interface
+* Detection thresholds
+* Flow limits
+* Detection rules
+* Alert configuration
+
+Configuration implementation has **not started yet**.
+
+## Database
+
+The current database directory is SQL-oriented:
+
+```text
+database/
+├── schema.sql
+├── indexes.sql
+└── queries.sql
+```
+
+A NoSQL storage layer has **not been implemented yet**.
+
+If a NoSQL database is added later, it should be treated as a separate storage/integration layer rather than mixing it directly into the existing SQL files.
 
 ## Testing
 
-Testing will include:
+Testing is being done incrementally with manually validated unit tests.
 
-* Unit tests
-* Integration tests
-* Detection tests
-* Reproducible PCAP traffic
-* Malformed packet tests
-* Live traffic testing
-
-Example traffic currently useful for parser testing includes:
-
-```bash
-ping 8.8.8.8
-curl https://example.com
-nslookup example.com
-dig example.com
-```
-
-PCAP-based testing will eventually be organized under:
+Current test areas include:
 
 ```text
-tests/pcaps/
-├── normal/
-├── scans/
-├── floods/
-└── brute_force/
+tests/
+├── unit/
+├── integration/
+├── detection/
+└── pcaps/
 ```
 
-## Development Roadmap
+Completed unit-test coverage includes the packet parser and flow-management components.
 
-### Phase 1 — Packet Capture and Parsing
+The project currently favors explicit manual test checks rather than relying exclusively on `assert()`.
 
-* [x] Live packet capture
-* [x] Ethernet parsing
-* [x] IPv4 parsing
-* [x] IPv6 base-header parsing
-* [x] TCP parsing
-* [x] UDP parsing
-* [ ] Complete ICMP parsing
-* [ ] Complete ICMPv6 parsing
-* [ ] IPv6 extension-header parsing
+## Next Development Step
 
-### Phase 2 — Flow Tracking
+The next task is to complete the **feature extraction layer**.
 
-* [ ] Flow keys
-* [ ] Bidirectional flow tracking
-* [ ] Flow table
-* [ ] Flow expiration
-* [ ] Flow statistics
+The immediate goals are:
 
-### Phase 3 — Feature Extraction
+1. Derive basic flow features from `ids_flow_t`.
+2. Design efficient tracking for unique destination ports.
+3. Design efficient tracking for unique destination hosts.
+4. Add timestamp-based rate calculations.
+5. Write feature unit tests.
+6. Pass the resulting features into the detection layer.
 
-* [ ] Packet-level features
-* [ ] Flow-level features
-* [ ] Rate-based features
-* [ ] Host-level statistics
-
-### Phase 4 — Detection
-
-* [ ] TCP/SYN port scan detection
-* [ ] ICMP sweep detection
-* [ ] SYN flood detection
-* [ ] UDP flood detection
-* [ ] Brute-force detection
-* [ ] Statistical anomaly detection
-
-### Phase 5 — Correlation and Alerting
-
-* [ ] Detection event correlation
-* [ ] Severity classification
-* [ ] Confidence scoring
-* [ ] Structured alerts
-* [ ] JSON output
-* [ ] File output
-
-### Phase 6 — Analysis and Visualization
-
-* [ ] Python analysis
-* [ ] Statistical reports
-* [ ] Database storage
-* [ ] API
-* [ ] Dashboard
-
-## License
-
-TBD
+After feature extraction is stable, development will move to the detection engine.

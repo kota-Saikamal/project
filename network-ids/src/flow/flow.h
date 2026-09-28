@@ -11,7 +11,7 @@ void ids_flow_init(
 	 const ids_packet_t *packet
 	);
 
-ids_flow_key_t ids_flow_key_from_packet(ids_packet_t *packet);
+ids_flow_key_t ids_flow_key_from_packet(const ids_packet_t *packet);
 
 bool ids_flow_key_equal(
 		const ids_flow_key_t *a,
