@@ -12,7 +12,7 @@
 
 typedef enum {
 
-  IDS_PROTOCOL_UNKOWN=0,
+  IDS_PROTOCOL_UNKNOWN=0,
   IDS_PROTOCOL_TCP,
   IDS_PROTOCOL_UDP,
   IDS_PROTOCOL_ICMP,
@@ -126,16 +126,25 @@ typedef struct {
  uint64_t syn_count;
  uint64_t ack_count;
  uint64_t rst_count;
-
+ uint64_t fin_count;
  uint64_t unique_destination_ports;
  uint64_t unique_destinationn_hosts;
 
- double packets_per_second;
- double bytes_per_second;
-
- double connection_rate;
  
 }ids_flow_features_t;
+
+typedef struct {
+	uint32_t packet_length;
+	uint32_t payload_length;
+	ids_protool_t protocol;
+	bool malformed;
+}ids_packet_features_t;
+
+typedef struct {
+	double packets_per_second;
+	double bytes_per_second;
+	double connection_rate;
+}ids_rate_features_t;
 
 
 typedef enum {
