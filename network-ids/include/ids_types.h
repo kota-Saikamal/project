@@ -128,7 +128,7 @@ typedef struct {
  uint64_t rst_count;
  uint64_t fin_count;
  uint64_t unique_destination_ports;
- uint64_t unique_destinationn_hosts;
+ uint64_t unique_destination_hosts;
 
  
 }ids_flow_features_t;
