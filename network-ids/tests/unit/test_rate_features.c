@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    ids_flow_t flow = {0};
+	ids_flow_t flow = {0};
     ids_flow_table_t table = {0};
     ids_rate_features_t features = {0};
 
@@ -21,7 +21,7 @@ int main(void)
 
     /* Extract features */
     ids_extract_rate_features(
-        &flow,
+    	&flow,
         &table,
         &features
     );

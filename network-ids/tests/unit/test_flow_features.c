@@ -3,10 +3,11 @@
 
 #include "feature.h"
 
+
 int main(void)
 {
     ids_flow_t flow = {0};
-    ids_flow_table_t table = {0};
+	ids_flow_table_t table = {0};
     ids_flow_features_t features = {0};
 
     /* Demo flow */

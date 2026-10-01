@@ -32,7 +32,7 @@ static uint64_t ids_hash_ip(
     return ids_hash_uint64(hash);
 }
 
-static bool ids_ip_equal(
+static bool is_ip_equal(
     const ids_ip_address_t *a,
     const ids_ip_address_t *b
 )
@@ -140,7 +140,7 @@ bool ids_hashmap_insert_ip(
 
         if (map->entries[current].type ==
                 IDS_HASH_KEY_IP &&
-            ids_ip_equal(
+            is_ip_equal(
                 &map->entries[current].key.ip_key,
                 key)) {
 
@@ -206,7 +206,7 @@ bool ids_hashmap_contains_ip(
 
         if (map->entries[current].type ==
                 IDS_HASH_KEY_IP &&
-            ids_ip_equal(
+            is_ip_equal(
                 &map->entries[current].key.ip_key,
                 key)) {
 

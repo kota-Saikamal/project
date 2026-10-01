@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "ids_types.h"
 #define IDS_HASHMAP_CAPACITY 1024
 
 typedef enum {
@@ -23,7 +24,7 @@ typedef struct {
 }ids_hashmap_entry_t;
 
 typedef struct {
-	ids_hasmap_entry_t entries[IDS_HASHMAP_CAPACITY];
+	ids_hashmap_entry_t entries[IDS_HASHMAP_CAPACITY];
 	size_t count;
 }ids_hashmap_t;
 
@@ -32,22 +33,22 @@ void ids_hashmap_init(
 	ids_hashmap_t *map
 );
 
-bool is_hashmap_insert_uint64(
+bool ids_hashmap_insert_uint64(
 	ids_hashmap_t *map,
 	uint64_t key
 );
 
-bool is_hashmap_insert_ip(
+bool ids_hashmap_insert_ip(
 	ids_hashmap_t *map,
 	const ids_ip_address_t *key
 );
 
-void is_hashmap_contains_uint64(
+bool is_hashmap_contains_uint64(
 	const ids_hashmap_t *map,
 	uint64_t key
 );
 
-void is_hashmap_contains_ip(
+bool is_hashmap_contains_ip(
 	const ids_hashmap_t *map,
 	const ids_ip_address_t *key
 );
